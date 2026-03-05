@@ -4,6 +4,12 @@
 
 `nvm ls` to view installed Node versions.
 
+`npm` installs and manages packages.
+
+`npx` executes Node packages. It can download them if not locally available.
+
+`npm run dev` runs the `dev` script from `package.json`. In this case, `vite dev`. Could also be run with `npx vite dev`.
+
 # Default files
 
 1. `.npmrc` is an npm configuration file. It has one setting as created, `engine-strict:true`. This ensures that packages incompatible with the engines specificied in `package.json` will not be installed.
@@ -21,3 +27,13 @@
 
 * Prettier focuses on code formatting. 
 * ESLint focuses on code quality and code style (e.g. naming conventions, import ordering). ESLint is configured in this project to leave code formatting to Prettier.
+
+# Visual Studio Code Extensions
+
+1. GitHub Copilot Chat
+2. Prettier - Code formatter
+3. Svelte for VS Code
+
+# Copilot Workflow Modes
+
+1. Plan. Work with Copilot to research and create a implemtation plan.
