@@ -27,6 +27,8 @@
 
 * Prettier focuses on code formatting. 
 * ESLint focuses on code quality and code style (e.g. naming conventions, import ordering). ESLint is configured in this project to leave code formatting to Prettier.
+* Enable *Format On Save* in Visual Studio code to automatically format when saving.
+* Run `npm run lint` to check formatting. This is mapped in `package.json` and runs both Prettier and ESLint. 
 
 # Visual Studio Code Extensions
 
@@ -34,6 +36,12 @@
 2. Prettier - Code formatter
 3. Svelte for VS Code
 
-# Copilot Workflow Modes
+# Copilot
 
-1. Plan. Work with Copilot to research and create a implemtation plan.
+* Plan mode. Work with Copilot to research and create a implemtation plan.
+* Reference files with the `#` command.
+
+# Testing
+
+* Right now, there's one Vite test in `demo.spec.ts`.
+* Vite tests can be run with `npm test`.
