@@ -1,7 +1,7 @@
 # TODO
 
 ## Current work
-- [ ] Pick a better font
+- [X] Pick a better font
 - [ ] 
 - [ ] 
 

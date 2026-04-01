@@ -19,41 +19,79 @@
 	<title>Nostos – travel experiences</title>
 </svelte:head>
 
-<div class="page">
-	{#each experiences as exp}
-		<article class="card">
-			<img src={exp.photo} alt={exp.title} />
-			<h2>{exp.title}</h2>
-		</article>
-	{/each}
-</div>
+<main class="page container">
+	<section class="cards">
+		{#each experiences as exp (exp.id)}
+			<article class="card">
+				<figure>
+					<img src={exp.photo} alt={exp.title} />
+					<figcaption>{exp.title}</figcaption>
+				</figure>
+			</article>
+		{/each}
+	</section>
+</main>
 
 <style>
+	:global(body) {
+		background: #ece3d6;
+		color: #141414;
+	}
+
 	.page {
+		padding: 2rem 1.5rem 3rem;
+		background: #ece3d6;
+	}
+
+	.cards {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-		gap: 1rem;
-		padding: 1rem;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		gap: 1.5rem;
 	}
 
 	.card {
-		border: 1px solid #ccc;
-		border-radius: 8px;
+		background: #fffefb;
+		border: 1px solid rgba(0, 0, 0, 0.08);
+		border-radius: 1rem;
+		padding: 0;
 		overflow: hidden;
-		text-align: center;
-		background: #fff;
-		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 22px 55px rgba(0, 0, 0, 0.12);
+		transition:
+			transform 0.2s ease,
+			box-shadow 0.2s ease;
+	}
+
+	.card:hover {
+		transform: translateY(-6px);
+		box-shadow: 0 28px 72px rgba(0, 0, 0, 0.18);
+	}
+
+	.card figure {
+		margin: 0;
+		padding: 0;
 	}
 
 	.card img {
-		display: block;
 		width: 100%;
 		height: auto;
+		aspect-ratio: 3 / 2;
+		object-fit: cover;
+		display: block;
 	}
 
-	.card h2 {
-		font-size: 1.1rem;
-		margin: 0.5rem 0;
-		font-family: 'Trebuchet MS', Verdana, sans-serif;
+	.card figcaption {
+		padding: 1rem 1.25rem 1.25rem;
+		font-size: 1rem;
+		font-weight: 700;
+		letter-spacing: 0.01em;
+		text-align: center;
+	}
+
+	.eyebrow {
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		font-size: 0.8rem;
+		opacity: 0.8;
+		margin-bottom: 0.75rem;
 	}
 </style>
