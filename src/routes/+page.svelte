@@ -6,12 +6,12 @@
 		return samplePhotos[Math.floor(Math.random() * samplePhotos.length)];
 	}
 	const experiences = [
-		{ id: 1, title: 'Beach sunset', photo: randomPhoto() },
-		{ id: 2, title: 'Mountain hike', photo: randomPhoto() },
-		{ id: 3, title: 'City tour', photo: randomPhoto() },
-		{ id: 4, title: 'Forest walk', photo: randomPhoto() },
-		{ id: 5, title: 'Desert adventure', photo: randomPhoto() },
-		{ id: 6, title: 'Snowy peak', photo: randomPhoto() }
+		{ id: 1, title: 'Beach sunset', location: 'Scotland', photo: randomPhoto() },
+		{ id: 2, title: 'Mountain hike', location: 'Switzerland', photo: randomPhoto() },
+		{ id: 3, title: 'City tour', location: 'Florence', photo: randomPhoto() },
+		{ id: 4, title: 'Forest walk', location: 'Oregon', photo: randomPhoto() },
+		{ id: 5, title: 'Desert adventure', location: 'Morocco', photo: randomPhoto() },
+		{ id: 6, title: 'Snowy peak', location: 'Alps', photo: randomPhoto() }
 	];
 </script>
 
@@ -25,7 +25,10 @@
 			<article class="card">
 				<figure>
 					<img src={exp.photo} alt={exp.title} />
-					<figcaption>{exp.title}</figcaption>
+					<figcaption>
+						<span class="title">{exp.title}</span>
+						<span class="location">{exp.location}</span>
+					</figcaption>
 				</figure>
 			</article>
 		{/each}
@@ -62,7 +65,6 @@
 	}
 
 	.card:hover {
-		transform: translateY(-6px);
 		box-shadow: 0 28px 72px rgba(0, 0, 0, 0.18);
 	}
 
@@ -80,18 +82,24 @@
 	}
 
 	.card figcaption {
-		padding: 1rem 1.25rem 1.25rem;
-		font-size: 1rem;
-		font-weight: 700;
-		letter-spacing: 0.01em;
+		padding: 0.5rem 0.9rem 0.7rem;
 		text-align: center;
 	}
 
-	.eyebrow {
-		text-transform: uppercase;
-		letter-spacing: 0.2em;
-		font-size: 0.8rem;
-		opacity: 0.8;
-		margin-bottom: 0.75rem;
+	.card figcaption .title {
+		display: block;
+		font-size: 1rem;
+		font-weight: 700;
+		line-height: 1.2;
+		letter-spacing: 0.01em;
+	}
+
+	.card figcaption .location {
+		display: block;
+		margin-top: 0.1rem;
+		font-size: 0.9rem;
+		font-weight: 400;
+		line-height: 1.2;
+		color: rgba(0, 0, 0, 0.65);
 	}
 </style>
