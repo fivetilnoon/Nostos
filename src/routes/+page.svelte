@@ -123,7 +123,6 @@
 
 	.new-experience:hover {
 		background: #222;
-		transform: translateY(-1px);
 		box-shadow: 0 10px 22px rgba(20, 20, 20, 0.18);
 	}
 
