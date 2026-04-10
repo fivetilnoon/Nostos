@@ -1,11 +1,14 @@
 <script>
+	import AddExperienceDialog from '$lib/AddExperienceDialog.svelte';
+
 	// static prototype data – will be replaced with dynamic content later
 	// six experiences using sample images from static/sample (random selection)
 	const samplePhotos = ['/sample/edinburgh.jpg', '/sample/greece.jpg', '/sample/train.jpg'];
 	function randomPhoto() {
 		return samplePhotos[Math.floor(Math.random() * samplePhotos.length)];
 	}
-	const experiences = [
+
+	let experiences = [
 		{
 			id: 1,
 			title: 'Beach sunset',
@@ -31,6 +34,35 @@
 		},
 		{ id: 6, title: 'Snowy peak', location: 'Alps', status: 'Complete', photo: randomPhoto() }
 	];
+
+	let showAddDialog = false;
+
+	function openAddDialog() {
+		showAddDialog = true;
+	}
+
+	function closeAddDialog() {
+		showAddDialog = false;
+	}
+
+	/**
+	 * @param {{ detail: { title: string; location: string } }} event
+	 */
+	function handleSave(event) {
+		const { title, location } = event.detail;
+		experiences = [
+			...experiences,
+			{
+				id: experiences.length + 1,
+				title,
+				location,
+				status: 'Planned',
+				photo: randomPhoto()
+			}
+		];
+
+		closeAddDialog();
+	}
 </script>
 
 <svelte:head>
@@ -41,9 +73,13 @@
 	<header class="page-header">
 		<div class="page-header-inner container">
 			<div class="brand">Nostos</div>
-			<button type="button" class="new-experience">Add</button>
+			<button type="button" class="new-experience" on:click={openAddDialog}>Add</button>
 		</div>
 	</header>
+
+	{#if showAddDialog}
+		<AddExperienceDialog on:cancel={closeAddDialog} on:save={handleSave} />
+	{/if}
 
 	<div class="page-body container">
 		<section class="cards">
@@ -64,17 +100,30 @@
 </main>
 
 <style>
+	:global(:root) {
+		--page-bg: #ece3d6;
+		--surface: #fff;
+		--text: #141414;
+		--muted: rgba(0, 0, 0, 0.65);
+		--border: rgba(0, 0, 0, 0.08);
+		--border-strong: rgba(0, 0, 0, 0.12);
+		--shadow: rgba(0, 0, 0, 0.12);
+		--shadow-strong: rgba(0, 0, 0, 0.18);
+		--radius: 1rem;
+		--radius-lg: 1.25rem;
+		--radius-pill: 999px;
+	}
+
 	:global(html, body) {
 		min-height: 100%;
 		margin: 0;
-		background: #ece3d6;
-		color: #141414;
+		background: var(--page-bg);
+		color: var(--text);
 	}
 
 	.page {
 		min-height: 100vh;
 		padding: 0;
-		background: #ece3d6;
 	}
 
 	.page-body {
@@ -83,9 +132,9 @@
 
 	.page-header {
 		margin-bottom: 2rem;
-		background: #fff;
-		border-bottom: 1px solid rgba(0, 0, 0, 0.08);
-		box-shadow: 0 18px 40px rgba(0, 0, 0, 0.08);
+		background: var(--surface);
+		border-bottom: 1px solid var(--border);
+		box-shadow: 0 18px 40px var(--shadow-strong);
 	}
 
 	.page-header-inner {
@@ -109,15 +158,14 @@
 		border: none;
 		padding: 0.65rem 1rem;
 		border-radius: 0.75rem;
-		background: #141414;
-		color: #fff;
+		background: var(--text);
+		color: var(--surface);
 		font-size: 0.95rem;
 		font-weight: 700;
 		cursor: pointer;
 		box-shadow: 0 8px 18px rgba(20, 20, 20, 0.14);
 		transition:
 			background 0.2s ease,
-			transform 0.2s ease,
 			box-shadow 0.2s ease;
 	}
 
@@ -134,14 +182,12 @@
 
 	.card {
 		background: #fffefb;
-		border: 1px solid rgba(0, 0, 0, 0.08);
-		border-radius: 1rem;
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
 		padding: 0;
 		overflow: hidden;
-		box-shadow: 0 22px 55px rgba(0, 0, 0, 0.12);
-		transition:
-			transform 0.2s ease,
-			box-shadow 0.2s ease;
+		box-shadow: 0 22px 55px var(--shadow);
+		transition: box-shadow 0.2s ease;
 	}
 
 	.card:hover {
@@ -159,12 +205,12 @@
 		top: 0.7rem;
 		right: 0.7rem;
 		padding: 0.2rem 0.6rem;
-		border-radius: 999px;
+		border-radius: var(--radius-pill);
 		font-size: 0.75rem;
 		font-weight: 700;
 		text-transform: uppercase;
 		letter-spacing: 0.08em;
-		color: #fff;
+		color: var(--surface);
 		background: rgba(0, 0, 0, 0.65);
 		backdrop-filter: blur(4px);
 		pointer-events: none;
@@ -205,6 +251,6 @@
 		font-size: 0.9rem;
 		font-weight: 400;
 		line-height: 1.2;
-		color: rgba(0, 0, 0, 0.65);
+		color: var(--muted);
 	}
 </style>
