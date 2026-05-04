@@ -127,11 +127,11 @@
 	}
 
 	.page-body {
-		padding: 2rem 0 3rem;
+		padding: 1.5rem 0 2rem;
 	}
 
 	.page-header {
-		margin-bottom: 2rem;
+		margin-bottom: 1.5rem;
 		background: var(--surface);
 		border-bottom: 1px solid var(--border);
 		box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
@@ -141,8 +141,8 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: 1rem;
-		padding: 1.25rem 0;
+		gap: 0.9rem;
+		padding: 0.9rem 0;
 	}
 
 	.brand {
@@ -156,11 +156,11 @@
 		align-items: center;
 		justify-content: center;
 		border: none;
-		padding: 0.65rem 1rem;
-		border-radius: 0.6rem;
+		padding: 0.45rem 0.85rem;
+		border-radius: 0.5rem;
 		background: var(--text);
 		color: var(--surface);
-		font-size: 0.95rem;
+		font-size: 0.9rem;
 		font-weight: 700;
 		cursor: pointer;
 		box-shadow: 0 8px 18px rgba(20, 20, 20, 0.14);
@@ -176,14 +176,14 @@
 
 	.cards {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-		gap: 1.5rem;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 1rem;
 	}
 
 	.card {
 		background: #fff;
 		border: 1px solid rgba(0, 0, 0, 0.06);
-		border-radius: var(--radius);
+		border-radius: calc(var(--radius) - 0.15rem);
 		padding: 0;
 		overflow: hidden;
 		box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
@@ -202,11 +202,11 @@
 
 	.status-chip {
 		position: absolute;
-		top: 0.65rem;
-		right: 0.65rem;
-		padding: 0.15rem 0.55rem;
+		top: 0.5rem;
+		right: 0.5rem;
+		padding: 0.12rem 0.45rem;
 		border-radius: var(--radius-pill);
-		font-size: 0.75rem;
+		font-size: 0.7rem;
 		font-weight: 700;
 		text-transform: uppercase;
 		letter-spacing: 0.06em;
@@ -233,13 +233,13 @@
 	}
 
 	.card figcaption {
-		padding: 0.75rem 1rem 1rem;
+		padding: 0.55rem 0.8rem 0.75rem;
 		text-align: center;
 	}
 
 	.card figcaption .title {
 		display: block;
-		font-size: 1rem;
+		font-size: 0.9rem;
 		font-weight: 700;
 		line-height: 1.2;
 		letter-spacing: 0.01em;
@@ -248,7 +248,7 @@
 	.card figcaption .location {
 		display: block;
 		margin-top: 0.1rem;
-		font-size: 0.9rem;
+		font-size: 0.8rem;
 		font-weight: 400;
 		line-height: 1.2;
 		color: var(--muted);
