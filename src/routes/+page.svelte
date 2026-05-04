@@ -107,10 +107,10 @@
 		--muted: rgba(0, 0, 0, 0.65);
 		--border: rgba(0, 0, 0, 0.08);
 		--border-strong: rgba(0, 0, 0, 0.12);
-		--shadow: rgba(0, 0, 0, 0.12);
-		--shadow-strong: rgba(0, 0, 0, 0.18);
-		--radius: 1rem;
-		--radius-lg: 1.25rem;
+		--shadow: rgba(0, 0, 0, 0.08);
+		--shadow-strong: rgba(0, 0, 0, 0.12);
+		--radius: 0.5rem;
+		--radius-lg: 0.75rem;
 		--radius-pill: 999px;
 	}
 
@@ -134,7 +134,7 @@
 		margin-bottom: 2rem;
 		background: var(--surface);
 		border-bottom: 1px solid var(--border);
-		box-shadow: 0 18px 40px var(--shadow-strong);
+		box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 	}
 
 	.page-header-inner {
@@ -157,7 +157,7 @@
 		justify-content: center;
 		border: none;
 		padding: 0.65rem 1rem;
-		border-radius: 0.75rem;
+		border-radius: 0.6rem;
 		background: var(--text);
 		color: var(--surface);
 		font-size: 0.95rem;
@@ -181,17 +181,17 @@
 	}
 
 	.card {
-		background: #fffefb;
-		border: 1px solid var(--border);
+		background: #fff;
+		border: 1px solid rgba(0, 0, 0, 0.06);
 		border-radius: var(--radius);
 		padding: 0;
 		overflow: hidden;
-		box-shadow: 0 22px 55px var(--shadow);
+		box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
 		transition: box-shadow 0.2s ease;
 	}
 
 	.card:hover {
-		box-shadow: 0 28px 72px rgba(0, 0, 0, 0.18);
+		box-shadow: 0 14px 34px rgba(0, 0, 0, 0.12);
 	}
 
 	.card figure {
@@ -202,16 +202,16 @@
 
 	.status-chip {
 		position: absolute;
-		top: 0.7rem;
-		right: 0.7rem;
-		padding: 0.2rem 0.6rem;
+		top: 0.65rem;
+		right: 0.65rem;
+		padding: 0.15rem 0.55rem;
 		border-radius: var(--radius-pill);
 		font-size: 0.75rem;
 		font-weight: 700;
 		text-transform: uppercase;
-		letter-spacing: 0.08em;
+		letter-spacing: 0.06em;
 		color: var(--surface);
-		background: rgba(0, 0, 0, 0.65);
+		background: rgba(0, 0, 0, 0.6);
 		backdrop-filter: blur(4px);
 		pointer-events: none;
 	}
@@ -233,7 +233,7 @@
 	}
 
 	.card figcaption {
-		padding: 0.5rem 0.9rem 0.7rem;
+		padding: 0.75rem 1rem 1rem;
 		text-align: center;
 	}
 
